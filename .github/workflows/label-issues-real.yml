@@ -7,10 +7,6 @@ jobs:
   assign-label:
     runs-on: ubuntu-latest
     steps:
-      - name: Debug GitHub Token Permissions
-        run: |
-          curl -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-               https://api.github.com/rate_limit
       - name: Assign label
         if: contains(github.event.issue.title, 'bug')
         run: |
